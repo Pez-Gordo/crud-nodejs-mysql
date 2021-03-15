@@ -14,4 +14,25 @@ controller.list = (req, res) => {
     })
 }
 
+controller.save = (req, res) => {
+    const data = req.body
+    req.getConnection((err, conn) => {
+        conn.query('INSERT INTO customer set ?', [data], (err, customer) => {
+            console.log(customer)
+            res.redirect('/')
+        })
+    })
+}
+
+controller.delete = (req, res) => {
+    //const id = req.param.id
+    const { id } = req.params // esta linea hace lo mismo que la anterior 
+
+    req.getConnection((err, conn) => {
+        conn.query('DELETE FROM customer WHERE id = ?', [id], (err, rows) => {
+            res.redirect('/')
+        })
+    })
+}
+
 module.exports = controller;
