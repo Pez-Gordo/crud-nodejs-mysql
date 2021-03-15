@@ -5,7 +5,7 @@
         <div class="col-md-5">
             <div class="card">
                 <div class="card-body">
-                    <form action="/update" method="post">
+                    <form action="/update/<%= data.id %>" method="post">
                         <div class="form-group">
                             <input type="text" name="name" value="<%= data.name %>" class="form-control">
                         </div>
@@ -15,7 +15,7 @@
                         <div class="form-group">
                             <input type="text" name="phone" value="<%= data.phone %>" class="form-control">
                         </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
                     </form>
                 </div>
             </div>

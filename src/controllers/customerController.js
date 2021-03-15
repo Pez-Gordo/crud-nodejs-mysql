@@ -24,6 +24,27 @@ controller.save = (req, res) => {
     })
 }
 
+controller.edit = (req, res) => {
+    const { id } = req.params
+    req.getConnection((err, conn) => {
+        conn.query('SELECT * FROM customer WHERE id = ?', [id], (err, customer) => {
+            res.render('customers_edit', {
+                data: customer[0]
+            })
+        })
+    })
+}
+
+controller.update = (req, res) => {
+    const { id } = req.params
+    const newCustomer = req.body
+    req.getConnection((err, conn) => {
+        conn.query('UPDATE customer set ? WHERE id = ?', [newCustomer, id], (err, rows) => {
+            res.redirect('/')
+        })
+    })
+}
+
 controller.delete = (req, res) => {
     //const id = req.param.id
     const { id } = req.params // esta linea hace lo mismo que la anterior 
