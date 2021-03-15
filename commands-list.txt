@@ -1,0 +1,32 @@
+En la carpeta del proyecto ejecutamos los comandos:
+
+
+// para inicializar proyecto
+
+$ npm init --yes 
+
+// para instalar dependencias
+
+$ npm i express mysql express-myconnection morgan ejs
+
+// ejecutamos el servidor
+
+$ node src/app.js
+
+// despues de ejecutar ya podemos comprobar en el navegador el error de nodejs "cannot GET /"
+
+// este paquete nos reinicia el servidor cada vez que se guarden los cambios
+
+$ npm i nodemon -D
+
+// con el operador -D le decimos que cargue esta dependencia solo para el desarrollo. Se instalará en una carpeta diferente a las demas dependencias
+
+// añadimos la siguiente linea al archivo packages.json: "dev": "nodemon src/app.js" Podemos sustituir con esto la linea "test":
+
+// la proxima vez arrancamos el servidor pero ya lo hacemos con el siguiente comando:
+
+$ npm run dev
+
+// el modificador run es para comandos en la seccion scripts
+
+
